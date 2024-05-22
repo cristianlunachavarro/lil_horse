@@ -7,12 +7,12 @@ import EntryList from "@/components/EntryList";
 import ModalForm from "@/components/ModalForm";
 import Error from "@/components/Error";
 
-import styles from "./HomePage.module.css";
-
 import { getEntries } from "../../actions/entries";
 import { logoutUser } from "@/actions/user";
 import useAuthentication from "@/hooks/useAuthentication";
-//TODO revisar los tags h2
+
+import styles from "./HomePage.module.css";
+
 const HomePage = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [openModal, setOpenModal] = useState<boolean>(false);
@@ -45,7 +45,7 @@ const HomePage = () => {
         <button className="wt h4" onClick={() => handleModal(true)}>
           Add Task
         </button>
-        <button onClick={handleLogout}>logout</button>
+        <p className={`${styles.logout} h4 tmedium`} onClick={handleLogout}>Logout</p>
       </div>
       <div className={styles.entriesContainer}>
         <div className={styles.columns}>

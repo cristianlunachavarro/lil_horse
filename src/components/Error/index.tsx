@@ -8,7 +8,6 @@ import styles from "./Error.module.css";
 const Error = () => {
   const dispatch = useDispatch<AppDispatch>();
   const errorMessage = useSelector((state: RootState) => state.uiReducer.error);
-  console.log({ errorMessage });
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {

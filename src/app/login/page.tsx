@@ -8,6 +8,7 @@ import Image from "next/image";
 import { AppDispatch } from "@/store/store";
 import useAuthentication from "@/hooks/useAuthentication";
 import { useRouter } from "next/navigation";
+import Loader from "@/components/Loader";
 
 const LoginPage = () => {
   const [username, setUsername] = useState<string>("");
@@ -17,9 +18,13 @@ const LoginPage = () => {
     password?: string;
   }>({});
 
-  const router = useRouter()
+  const router = useRouter();
 
-  useAuthentication();
+  const authChecked = useAuthentication();
+
+  if (!authChecked) {
+    return <Loader />;
+  }
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -129,7 +134,7 @@ const LoginPage = () => {
         </button>
         <button
           className={`h3 tstrong wt ${styles.loginButton}`}
-          onClick={() => router.push('/register')}
+          onClick={() => router.push("/register")}
         >
           Register
         </button>

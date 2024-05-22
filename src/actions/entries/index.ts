@@ -45,7 +45,6 @@ export const updateEntry = (entry: Entry) => async (dispatch: Dispatch) => {
     }
     dispatch(getEntriesSuccess(data));
   } catch (error) {
-    console.log(error);
     dispatch(getEntriesFail(error));
     console.error("Error updating entries:", error);
   }

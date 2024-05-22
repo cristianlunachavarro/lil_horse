@@ -12,9 +12,11 @@ import { useRouter } from "next/navigation";
 const LoginPage = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [errors, setErrors] = useState<{
     username?: string;
     password?: string;
+    confirmPassword?: string;
   }>({});
 
   const router = useRouter();
@@ -32,13 +34,22 @@ const LoginPage = () => {
     setPassword(value);
   };
 
+  const handleConfirmPassword = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setConfirmPassword(value);
+  };
+
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
   const validateForm = () => {
-    const newErrors: { username?: string; password?: string } = {};
+    const newErrors: {
+      username?: string;
+      password?: string;
+      confirmPassword?: string;
+    } = {};
 
     if (!username) {
       newErrors.username = "Username is required.";
@@ -52,6 +63,8 @@ const LoginPage = () => {
       newErrors.password = "Password is required.";
     } else if (password.length < 6) {
       newErrors.password = "Password must be at least 6 characters long.";
+    } else if (password !== confirmPassword) {
+      newErrors.password = "Password must be the same";
     }
 
     setErrors(newErrors);
@@ -102,6 +115,22 @@ const LoginPage = () => {
             placeholder="∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗"
             className={styles.textInput}
             onChange={handlePassword}
+          />
+          <div
+            className={`${styles.error} ${
+              errors.password ? styles.visible : ""
+            } h6`}
+          >
+            {errors.password}
+          </div>{" "}
+        </div>
+        <div className={styles.inputContainer}>
+          <h3 className="dgt tmedium">Confirm Password</h3>
+          <input
+            type="password"
+            placeholder="∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗"
+            className={styles.textInput}
+            onChange={handleConfirmPassword}
           />
           <div
             className={`${styles.error} ${

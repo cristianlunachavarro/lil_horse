@@ -11,7 +11,6 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     loginSuccess(state, action) {
-      console.log("action", action.payload);
       state.user = action.payload;
       state.error = "";
     },

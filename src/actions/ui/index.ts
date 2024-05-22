@@ -6,7 +6,6 @@ export const setIsDragging = (value: boolean) => (dispatch: Dispatch) => {
 };
 
 export const setErrorMessage = (error: string) => (dispatch: Dispatch) => {
-  console.log({error})
   dispatch(errorMessage(error));
 };
 

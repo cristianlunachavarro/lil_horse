@@ -14,7 +14,6 @@ export const loginUser =
         username,
         password,
       });
-      // TODO SETERROR
       if ("error" in data) {
         return;
       }
@@ -22,7 +21,6 @@ export const loginUser =
       if (typeof window !== undefined) {
         localStorage.setItem("access_token", data.token);
       }
-      console.log("Data", data.user);
       dispatch(loginSuccess(data.user));
     } catch (error) {
       dispatch(loginFailure("Error"));
@@ -31,7 +29,7 @@ export const loginUser =
 
 export const logoutUser = () => (dispatch: Dispatch) => {
   localStorage.removeItem("access_token");
-  while (localStorage.getItem('access_token')) {}
+  while (localStorage.getItem("access_token")) {}
   dispatch(logoutSuccess());
 };
 
@@ -42,6 +40,7 @@ export const createUser =
         username,
         password,
       });
+      console.log({ data });
       if ("error" in data) {
         return;
       }

@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { format } from "date-fns";
 
 import EntryModel from "../../models/entry";
+import { errorMessage } from "@/store/slices/ui";
 
 export const createEntry = async (req: Request, res: Response) => {
   try {
@@ -58,14 +59,17 @@ export const updateEntry = async (req: Request, res: Response) => {
       { new: true }
     );
     if (!updatedEntry) {
-      throw new Error("Coul not update an entry");
+      const errorResponse = {
+        error: "Entry not found",
+      };
+      return res.status(404).json(errorResponse);
     }
     await updatedEntry.save();
     await getEntries(req, res);
   } catch (err) {
     console.error("Error updating an entry:", err);
     const errorResponse = {
-      error: "Internal Server Error",
+      error: err || "Internal Server Error",
     };
     res.status(500).json(errorResponse);
   }

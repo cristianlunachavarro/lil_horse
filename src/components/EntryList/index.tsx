@@ -24,9 +24,7 @@ const EntryList: FC<Props> = ({ status }) => {
     (state: RootState) => state.uiReducer.isDraggin
   );
 
-  //todo check this
   const allowDrop = (e: DragEvent<HTMLDivElement>) => {
-    console.log("Allow drop");
     e.preventDefault();
   };
 
@@ -51,7 +49,6 @@ const EntryList: FC<Props> = ({ status }) => {
       }
       dispatch(updateEntry(updatedEntry));
     } else {
-      console.log("llega");
       dispatch(setErrorMessage("This transition is not allowed"));
     }
     dispatch(setIsDragging(false));

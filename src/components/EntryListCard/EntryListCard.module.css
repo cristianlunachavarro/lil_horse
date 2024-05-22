@@ -1,0 +1,21 @@
+.container {
+  background: white;
+  border-radius: 10px;
+  padding: 5%;
+  margin: 5% 0;
+}
+
+.container h3 {
+  color: var(--primary-color);
+  margin: 5px 0 10px 0;
+}
+
+.container p {
+  margin: 0 0 10px 0;
+}
+
+.dateContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+}

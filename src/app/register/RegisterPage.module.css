@@ -1,0 +1,95 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary-color);
+  text-align: center;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 25% 10%;
+  background-color: white;
+}
+
+.inputContainer {
+  margin: 20px 0 0 0;
+  width: 75%;
+  height: 110px;
+}
+
+.textInput {
+  margin: 10px 0 5px 0;
+  border: 1px solid black;
+  width: 100%;
+  padding: 10px 10px;
+  border-radius: 8px;
+}
+
+.remember {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 75%;
+}
+
+.remember div {
+  display: flex;
+  align-items: center;
+}
+
+.remember p {
+  margin-left: 10px;
+}
+
+.remember input {
+  width: 15px;
+  height: 15px;
+}
+
+.loginButton {
+  background: var(--secundary-color);
+  padding: 5px 0;
+  border-radius: 8px;
+  width: 75%;
+  margin: 35px 0 15px 0;
+}
+
+.loginIcons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 20px 0;
+}
+.dividerContainer {
+  display: flex;
+  flex-direction: row;
+  height: 0.5px;
+  width: 75%;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+.divider {
+  border: 0.5px solid black;
+  width: 100%;
+  margin: 20px 15px 20px 15px;
+}
+
+.error {
+  color: var(--error-color);
+  visibility: hidden;
+}
+
+.error.visible {
+  visibility: visible;
+}

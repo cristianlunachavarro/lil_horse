@@ -2,28 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
+.title { font-size: 38px }
+.h1 { font-size: 30px }
+.h2 { font-size: 24px }
+.h3 { font-size: 20px }
+.h4 { font-size: 16px }
+.h5 { font-size: 14px }
+.h6 { font-size: 12px }
+
+.wt { color: white}
+.bt { color: black}
+.gt { color: rgb(159, 159, 159) }
+.dgt { color: rgb(91, 91, 91)}
+
+.tstrong { font-weight: 700 }
+.tmedium { font-weight: 500;}
+
+.mtm { margin-top: 10px }
+.mtl { margin-top: 15px}
+.mbm { margin-bottom: 10px }
+.mlm { margin-left: 10px }
+.mrm { margin-right: 10px }
+
+.pil {padding-inline: 15px;}
+
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --primary-color: rgb(192, 131, 252);
+  --secundary-color:  rgb(165, 80, 250);
+  --error-color: rgb(255, 83, 83);
+  --soft-gray-color:  rgb(159, 159, 159);
+  background: radial-gradient(circle, #fdd1fb, #dddfff);
+
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: white) {
   :root {
-    --foreground-rgb: 255, 255, 255;
+    --foreground-rgb: #fffff;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {

@@ -1,0 +1,37 @@
+.background {
+  padding: 2.5% 5%;
+  height: 100%;
+}
+
+.barContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.background button {
+  background: var(--secundary-color);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.entriesContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5%;
+  padding: 2.5%;
+}
+
+.columns {
+  width: 100%;
+  padding: 5%;
+  border-radius: 10px;
+  border: 1px dashed var(--soft-gray-color);
+}
+
+.columns h2 {
+  background: white;
+  border-radius: 8px;
+  padding: 2% 5%;
+  margin: 0 0 10% 0;
+}
